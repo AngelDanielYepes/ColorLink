@@ -1,0 +1,6 @@
+{
+  "name": "Colorlink - Registro de Proyectos",
+  "description": "Formulario de registro técnico y logístico para proyectos de pintura profesional Colorlink.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
