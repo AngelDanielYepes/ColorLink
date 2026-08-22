@@ -1,6 +1,6 @@
 {
   "name": "Colorlink - Registro de Proyectos",
-  "description": "Formulario de registro técnico y logístico para proyectos de pintura profesional Colorlink.",
+  "description": "Portal oficial y cotizador de venta de pinturas, galones, cuñetes y materiales de aplicación Colorlink Colombia en COP.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
