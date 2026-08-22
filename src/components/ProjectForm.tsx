@@ -222,11 +222,11 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {/* Empresa / Razón Social */}
+          {/* Nombre de la empresa */}
           <div className="space-y-1.5 sm:col-span-2">
             <label className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-700">
               <Building2 className="w-3.5 h-3.5 text-sky-600" />
-              Razón Social / Nombre Completo <span className="text-rose-500">*</span>
+              Nombre de la empresa <span className="text-rose-500">*</span>
             </label>
             <input
               type="text"

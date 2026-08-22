@@ -473,7 +473,7 @@ export function generateStandaloneHtml(): string {
 
           <div class="form-grid">
             <div class="form-group full-width">
-              <label for="cliente">Razón Social / Nombre Completo <span class="req">*</span></label>
+              <label for="cliente">Nombre de la empresa <span class="req">*</span></label>
               <input type="text" id="cliente" name="cliente" placeholder="Ej. Constructora Andina S.A.S. o Carlos Rodríguez" required>
             </div>
 
