@@ -495,8 +495,13 @@ export function generateStandaloneHtml(): string {
             </div>
 
             <div class="form-group">
-              <label for="contactoNombre">Persona de Contacto / Compras <span class="req">*</span></label>
+              <label for="contactoNombre">Persona de Contacto <span class="req">*</span></label>
               <input type="text" id="contactoNombre" name="contactoNombre" placeholder="Ej. Ing. Diana Morales" required>
+            </div>
+
+            <div class="form-group">
+              <label for="cargoContacto">Cargo / Rol del Contacto</label>
+              <input type="text" id="cargoContacto" name="cargoContacto" placeholder="Ej. Jefe de Compras / Director de Obra">
             </div>
 
             <div class="form-group">
@@ -685,7 +690,12 @@ export function generateStandaloneHtml(): string {
 
             <div class="form-group">
               <label for="recibeNombre">Nombre de quien Recibe en Sitio</label>
-              <input type="text" id="recibeNombre" name="recibeNombre" placeholder="Ej. Maestro Jorge Gómez (311 222 3344)">
+              <input type="text" id="recibeNombre" name="recibeNombre" placeholder="Ej. Maestro Jorge Gómez">
+            </div>
+
+            <div class="form-group">
+              <label for="telefonoRecibe">Teléfono de Contacto en Sitio</label>
+              <input type="tel" id="telefonoRecibe" name="telefonoRecibe" placeholder="Ej. +57 311 222 3344">
             </div>
 
             <div class="form-group">
@@ -868,6 +878,7 @@ export function generateStandaloneHtml(): string {
             if (data.nitOCedula) document.getElementById('nitOCedula').value = data.nitOCedula;
             if (data.tipoCliente) document.getElementById('tipoCliente').value = data.tipoCliente;
             if (data.contactoNombre) document.getElementById('contactoNombre').value = data.contactoNombre;
+            if (data.cargoContacto) document.getElementById('cargoContacto').value = data.cargoContacto;
             if (data.telefono) document.getElementById('telefono').value = data.telefono;
             if (data.email) document.getElementById('email').value = data.email;
 
@@ -877,6 +888,7 @@ export function generateStandaloneHtml(): string {
             if (data.direccionEnvio) document.getElementById('direccionEnvio').value = data.direccionEnvio;
             if (data.barrioSector) document.getElementById('barrioSector').value = data.barrioSector;
             if (data.recibeNombre) document.getElementById('recibeNombre').value = data.recibeNombre;
+            if (data.telefonoRecibe) document.getElementById('telefonoRecibe').value = data.telefonoRecibe;
             if (data.fechaRequerida) document.getElementById('fechaRequerida').value = data.fechaRequerida;
             if (data.indicacionesEntrega) document.getElementById('indicacionesEntrega').value = data.indicacionesEntrega;
 
@@ -924,6 +936,7 @@ export function generateStandaloneHtml(): string {
           nitOCedula: document.getElementById('nitOCedula').value,
           tipoCliente: document.getElementById('tipoCliente').value,
           contactoNombre: document.getElementById('contactoNombre').value,
+          cargoContacto: document.getElementById('cargoContacto') ? document.getElementById('cargoContacto').value : '',
           telefono: document.getElementById('telefono').value,
           email: document.getElementById('email').value,
 
@@ -933,6 +946,7 @@ export function generateStandaloneHtml(): string {
           direccionEnvio: document.getElementById('direccionEnvio').value,
           barrioSector: document.getElementById('barrioSector').value,
           recibeNombre: document.getElementById('recibeNombre').value,
+          telefonoRecibe: document.getElementById('telefonoRecibe') ? document.getElementById('telefonoRecibe').value : '',
           fechaRequerida: document.getElementById('fechaRequerida').value,
           indicacionesEntrega: document.getElementById('indicacionesEntrega').value,
 

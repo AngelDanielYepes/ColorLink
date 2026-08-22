@@ -280,7 +280,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({
           <div className="space-y-1.5">
             <label className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-700">
               <User className="w-3.5 h-3.5 text-sky-600" />
-              Persona de Contacto / Compras <span className="text-rose-500">*</span>
+              Persona de Contacto <span className="text-rose-500">*</span>
             </label>
             <input
               type="text"
@@ -289,6 +289,22 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({
               value={formData.contactoNombre || ''}
               onChange={handleChange}
               placeholder="Ej. Ing. Diana Morales"
+              className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm text-slate-900 focus:bg-white focus:border-sky-500 focus:ring-3 focus:ring-sky-500/15 outline-none transition-all"
+            />
+          </div>
+
+          {/* Cargo / Rol del Contacto */}
+          <div className="space-y-1.5">
+            <label className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-700">
+              <Briefcase className="w-3.5 h-3.5 text-sky-600" />
+              Cargo / Rol del Contacto
+            </label>
+            <input
+              type="text"
+              name="cargoContacto"
+              value={formData.cargoContacto || ''}
+              onChange={handleChange}
+              placeholder="Ej. Jefe de Compras / Director de Obra"
               className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm text-slate-900 focus:bg-white focus:border-sky-500 focus:ring-3 focus:ring-sky-500/15 outline-none transition-all"
             />
           </div>
@@ -311,7 +327,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({
           </div>
 
           {/* Correo Electrónico */}
-          <div className="space-y-1.5 lg:col-span-3">
+          <div className="space-y-1.5 sm:col-span-2 lg:col-span-3">
             <label className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-700">
               <Mail className="w-3.5 h-3.5 text-sky-600" />
               Correo Electrónico (Para envío de cotización y facturación) <span className="text-rose-500">*</span>
@@ -825,8 +841,24 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({
               name="recibeNombre"
               value={formData.recibeNombre || ''}
               onChange={handleChange}
-              placeholder="Ej. Maestro Jorge Gómez (311 222 3344)"
+              placeholder="Ej. Maestro Jorge Gómez"
               className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm text-slate-900 focus:bg-white focus:border-sky-500 focus:ring-3 focus:ring-sky-500/15 outline-none transition-all"
+            />
+          </div>
+
+          {/* Teléfono de quien Recibe en Obra */}
+          <div className="space-y-1.5">
+            <label className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-700">
+              <Phone className="w-3.5 h-3.5 text-sky-600" />
+              Teléfono de Contacto en Sitio
+            </label>
+            <input
+              type="tel"
+              name="telefonoRecibe"
+              value={formData.telefonoRecibe || ''}
+              onChange={handleChange}
+              placeholder="Ej. +57 311 222 3344"
+              className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm text-slate-900 focus:bg-white focus:border-sky-500 focus:ring-3 focus:ring-sky-500/15 outline-none transition-all font-mono"
             />
           </div>
 

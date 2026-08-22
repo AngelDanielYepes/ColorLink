@@ -15,15 +15,16 @@ import {
 const STORAGE_KEY = 'colorlink_project_registration';
 
 const INITIAL_FORM_STATE: ProjectFormData = {
-  // 1. Datos de Empresa / Cliente
+  // 1. Datos de Empresa / Cliente (CLIENTES + CONTACTOS_CLIENTE)
   cliente: '',
   nitOCedula: '',
   contactoNombre: '',
+  cargoContacto: '',
   telefono: '',
   email: '',
   tipoCliente: 'constructora',
 
-  // 2. Especificaciones de Pintura & Cotización
+  // 2. Especificaciones de Pintura & Cotización (PRODUCTOS + COTIZACIONES + EXTRAS)
   area: '',
   superficie: '',
   condicion: '',
@@ -37,13 +38,14 @@ const INITIAL_FORM_STATE: ProjectFormData = {
   includePrimer: false,
   includeResaneProduct: false,
 
-  // 3. Datos de Envío y Despacho
+  // 3. Datos de Envío y Despacho (PEDIDOS + DIRECCIONES_ENVIO)
   ciudad: '',
   departamento: '',
   direccionEnvio: '',
   barrioSector: '',
   proyecto: '',
   recibeNombre: '',
+  telefonoRecibe: '',
   fechaRequerida: '',
   indicacionesEntrega: '',
   fotoNombre: undefined,
@@ -64,15 +66,16 @@ export default function App() {
       if (saved) {
         const parsed = JSON.parse(saved);
         setFormData({
-          // Cliente / Empresa
+          // Cliente / Empresa (CLIENTES + CONTACTOS_CLIENTE)
           cliente: parsed.cliente || '',
           nitOCedula: parsed.nitOCedula || '',
           contactoNombre: parsed.contactoNombre || '',
+          cargoContacto: parsed.cargoContacto || '',
           telefono: parsed.telefono || '',
           email: parsed.email || '',
           tipoCliente: parsed.tipoCliente || 'constructora',
 
-          // Cotización
+          // Cotización (PRODUCTOS + COTIZACIONES + EXTRAS)
           area: parsed.area ? String(parsed.area) : '',
           superficie: parsed.superficie || '',
           condicion: parsed.condicion || '',
@@ -86,13 +89,14 @@ export default function App() {
           includePrimer: parsed.includePrimer ?? false,
           includeResaneProduct: parsed.includeResaneProduct ?? false,
 
-          // Envío
+          // Envío (PEDIDOS + DIRECCIONES_ENVIO)
           ciudad: parsed.ciudad || '',
           departamento: parsed.departamento || '',
           direccionEnvio: parsed.direccionEnvio || '',
           barrioSector: parsed.barrioSector || '',
           proyecto: parsed.proyecto || '',
           recibeNombre: parsed.recibeNombre || '',
+          telefonoRecibe: parsed.telefonoRecibe || '',
           fechaRequerida: parsed.fechaRequerida || '',
           indicacionesEntrega: parsed.indicacionesEntrega || '',
           fotoNombre: parsed.fotografia?.nombre || undefined,
@@ -115,17 +119,18 @@ export default function App() {
     const quotation = calculateQuotation(formData);
 
     const structuredPayload = {
-      // 1. Datos de Empresa / Cliente
+      // 1. Datos de Empresa / Cliente (CLIENTES + CONTACTOS_CLIENTE)
       empresaCliente: {
         razonSocial: formData.cliente.trim(),
         nitOCedula: formData.nitOCedula?.trim() || null,
         contacto: formData.contactoNombre?.trim() || null,
+        cargoContacto: formData.cargoContacto?.trim() || null,
         telefono: formData.telefono?.trim() || null,
         email: formData.email?.trim() || null,
         tipoCliente: formData.tipoCliente,
       },
 
-      // 2. Cotización y Materiales
+      // 2. Cotización y Materiales (PRODUCTOS + COTIZACIONES + EXTRAS)
       cotizacionMateriales: {
         areaM2: parseFloat(formData.area) || 0,
         superficie: formData.superficie?.trim() || null,
@@ -154,7 +159,7 @@ export default function App() {
         },
       },
 
-      // 3. Logística de Envío y Despacho
+      // 3. Logística de Envío y Despacho (PEDIDOS + DIRECCIONES_ENVIO)
       logisticaDespacho: {
         ciudad: formData.ciudad.trim(),
         departamento: formData.departamento?.trim() || null,
@@ -162,6 +167,7 @@ export default function App() {
         barrioSector: formData.barrioSector?.trim() || null,
         proyectoObra: formData.proyecto.trim(),
         personaRecibe: formData.recibeNombre?.trim() || null,
+        telefonoRecibe: formData.telefonoRecibe?.trim() || null,
         fechaRequerida: formData.fechaRequerida,
         indicacionesEntrega: formData.indicacionesEntrega?.trim() || null,
       },

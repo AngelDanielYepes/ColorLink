@@ -110,7 +110,7 @@ export function generateQuotationPdf(formData: ProjectFormData): void {
   doc.text(`Contacto:`, 110, currentY + 12);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(darkColor[0], darkColor[1], darkColor[2]);
-  doc.text(formData.contactoNombre || 'Contacto Comercial', 135, currentY + 12);
+  doc.text(`${formData.contactoNombre || 'Contacto Comercial'}${formData.cargoContacto ? ` (${formData.cargoContacto})` : ''}`, 135, currentY + 12);
 
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(71, 85, 105);
@@ -316,7 +316,12 @@ export function generateQuotationPdf(formData: ProjectFormData): void {
   doc.text(`Recibe / Fec:`, 18, nextY + 26);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(darkColor[0], darkColor[1], darkColor[2]);
-  doc.text(`${formData.recibeNombre ? `${formData.recibeNombre} • ` : ''}${formData.fechaRequerida || 'Inmediata'}`, 35, nextY + 26);
+  const recibeDetails = [
+    formData.recibeNombre,
+    formData.telefonoRecibe,
+    formData.fechaRequerida ? `Fec: ${formData.fechaRequerida}` : 'Entrega Inmediata'
+  ].filter(Boolean).join(' • ');
+  doc.text(recibeDetails || 'Por definir', 35, nextY + 26);
 
   // TOTALS BOX (Right)
   doc.setFillColor(lightBg[0], lightBg[1], lightBg[2]);
